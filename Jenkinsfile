@@ -1,22 +1,40 @@
 pipeline {
-  agent {dockerfile true}
-  stages {
-    stage("build") {
-      steps {
-        bat """
-          docker build -t hello_there .
-        """
-      }
+    agent {
+        docker { image 'node:14-alpine' }
     }
-    stage("run") {
-      steps {
-        sh """
-          docker run --rm hello_there
-        """
-      }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
+        }
     }
-  }
 }
+
+
+
+
+
+
+//pipeline {
+  //agent any
+  //stages {
+    //stage("build") {
+      //steps {
+        //bat """
+          //docker build -t hello_there .
+        //"""
+      //}
+    //}
+    //stage("run") {
+      //steps {
+        //sh """
+          //docker run --rm hello_there
+        //"""
+      //}
+    //}
+  //}
+//}
 
 
 
