@@ -4,8 +4,8 @@ pipeline {
     stage("build") {
       steps {
         script {
-		dockerFingerprintFrom dockerfile: 'Dockerfile', image: 'docker_start'
-		//sh 'docker build -t docker_start .'
+		//dockerFingerprintFrom dockerfile: 'Dockerfile', image: 'docker_start'
+		sh 'docker build -t docker_start .'
 		}
       }
     }
