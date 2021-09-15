@@ -1,9 +1,9 @@
 pipeline {
-  agent {Dockerfile true}
+  agent {dockerfile true}
   stages {
     stage("build") {
       steps {
-        sh """
+        bat """
           docker build -t hello_there .
         """
       }
